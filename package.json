@@ -1,0 +1,10 @@
+{
+  "name": "teste-facilita-juridico",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "dev:front": "cd frontend && yarn dev",
+    "dev:back": "cd backend && yarn dev"
+  }
+}
