@@ -1,7 +1,8 @@
 import { z } from "zod"
 
-import { clients } from "../data/clients";
 import { Route } from "../routes";
+
+import { ClientModel } from "../models/ClientsModel";
 
 export const clientSchema = z.object({
   name: z.string(),
@@ -14,18 +15,16 @@ export const clientsRoutes: Route[] = [
     path: "/",
     method: "get",
     controller: async (req, res) => {
-      res.json(clients);
+      res.json(await ClientModel.all());
     },
   },
   {
     path: "/",
     method: "post",
     controller: async (req, res) => {
-      const newClient = await clientSchema.parseAsync(req.body)
-  
-      const client = { ...newClient, id: `${clients.length + 1}` }
-    
-      clients.push(client)
+      const client = await clientSchema.parseAsync(req.body)
+
+      await ClientModel.create(client);
       
       res.json(client)
     }
