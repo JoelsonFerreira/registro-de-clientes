@@ -19,9 +19,10 @@ import { createClient } from "@/actions/create-client"
 
 type NewCLientFormProps = {
   children?: ReactNode;
+  onClose: () => void
 }
 
-export function NewCLientForm({ children }: NewCLientFormProps) {
+export function NewCLientForm({ children, onClose }: NewCLientFormProps) {
   const form = useForm<Client>({
     resolver: zodResolver(clientSchema),
     defaultValues: {
@@ -33,8 +34,9 @@ export function NewCLientForm({ children }: NewCLientFormProps) {
 
   const onCreateClient = async (data: Client) => {    
     await createClient(data);
+    onClose();
   }
-
+  
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onCreateClient)} className="space-y-4">
@@ -79,6 +81,36 @@ export function NewCLientForm({ children }: NewCLientFormProps) {
             </FormItem>
           )}
         />
+
+        <div className="flex items-center justify-between">
+          <FormField
+            control={form.control}
+            name="coordX"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>X</FormLabel>
+                <FormControl>
+                  <Input type="number" placeholder="0" {...field} />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          
+          <FormField
+            control={form.control}
+            name="coordY"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Y</FormLabel>
+                <FormControl>
+                  <Input type="number" placeholder="0" {...field} />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+        </div>
         {children}
       </form>
     </Form>

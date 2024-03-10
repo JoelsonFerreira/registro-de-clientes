@@ -1,24 +1,27 @@
-import {
-  AlertDialog,
-  AlertDialogContent,
-  AlertDialogTrigger,
-} from "@/components/ui/alert-dialog"
+import type { Dispatch, ReactNode, SetStateAction } from "react"
+
 import { Button } from "@/components/ui/button"
-import type { ReactNode } from "react"
+import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 
 type NewClientModalProps = {
   children?: ReactNode;
+  isOpen: boolean;
+  setIsOpen: Dispatch<SetStateAction<boolean>>;
 }
 
-export function NewClientModal({ children }: NewClientModalProps) {
+export function NewClientModal({ 
+  children,
+  isOpen,
+  setIsOpen,
+}: NewClientModalProps) {
   return (
-    <AlertDialog>
-      <AlertDialogTrigger asChild>
+    <Dialog open={isOpen} onOpenChange={setIsOpen}>
+      <DialogTrigger asChild>
         <Button>Registrar cliente</Button>
-      </AlertDialogTrigger>
-      <AlertDialogContent>
+      </DialogTrigger>
+      <DialogContent>
         {children}
-      </AlertDialogContent>
-    </AlertDialog>
+      </DialogContent>
+    </Dialog>
   )
 }

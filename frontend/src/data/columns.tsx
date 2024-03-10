@@ -9,30 +9,6 @@ import { DataTableColumnHeader } from "../components/sections/data-table/data-ta
 
 export const columns: ColumnDef<Client>[] = [
   {
-    id: "select",
-    header: ({ table }) => (
-      <Checkbox
-        checked={
-          table.getIsAllPageRowsSelected() ||
-          (table.getIsSomePageRowsSelected() && "indeterminate")
-        }
-        onCheckedChange={(value) => table.toggleAllPageRowsSelected(!!value)}
-        aria-label="Select all"
-        className="translate-y-[2px]"
-      />
-    ),
-    cell: ({ row }) => (
-      <Checkbox
-        checked={row.getIsSelected()}
-        onCheckedChange={(value) => row.toggleSelected(!!value)}
-        aria-label="Select row"
-        className="translate-y-[2px]"
-      />
-    ),
-    enableSorting: false,
-    enableHiding: false,
-  },
-  {
     accessorKey: "id",
     header: ({ column }) => (
       <DataTableColumnHeader column={column} title="ID" />
@@ -81,6 +57,36 @@ export const columns: ColumnDef<Client>[] = [
         <div className="flex space-x-2">
           <span className="max-w-[500px] truncate font-medium">
             {row.getValue("phone")}
+          </span>
+        </div>
+      )
+    },
+  },
+  {
+    accessorKey: "coordX",
+    header: ({ column }) => (
+      <DataTableColumnHeader column={column} title="X" />
+    ),
+    cell: ({ row }) => {
+      return (
+        <div className="flex space-x-2">
+          <span className="max-w-[500px] truncate font-medium">
+            {row.getValue("coordX")}
+          </span>
+        </div>
+      )
+    },
+  },
+  {
+    accessorKey: "coordY",
+    header: ({ column }) => (
+      <DataTableColumnHeader column={column} title="Y" />
+    ),
+    cell: ({ row }) => {
+      return (
+        <div className="flex space-x-2">
+          <span className="max-w-[500px] truncate font-medium">
+            {row.getValue("coordY")}
           </span>
         </div>
       )

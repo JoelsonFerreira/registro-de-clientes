@@ -10,6 +10,8 @@ export type Client = {
   email: string;
   name: string;
   phone: string;
+  coordX: string;
+  coordY: string;
 };
 
 export class ClientModel extends Model {
