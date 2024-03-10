@@ -22,7 +22,7 @@ export const clientsRoutes: Route[] = [
     path: "/",
     method: "get",
     controller: async (req, res) => {
-      res.json(await ClientModel.all());
+      res.json(await ClientModel.find());
     },
   },
   {
@@ -49,7 +49,7 @@ export const clientsRoutes: Route[] = [
     path: "/path",
     method: "get",
     controller: async (req, res) => {
-      const clients = await ClientModel.all<Client>();
+      const clients = await ClientModel.find();
 
       const initialCoord = { x: 0, y: 0 }; 
 

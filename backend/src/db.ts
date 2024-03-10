@@ -1,9 +1,5 @@
-import knex from "knex"
+import postgres from 'postgres'
 
 import { env } from "./env"
 
-export const db = knex({
-  client: 'pg',
-  connection: env.PG_CONNECTION_STRING,
-  searchPath: ['knex', 'public'],
-})
+export const sql = postgres(env.PG_CONNECTION_STRING)

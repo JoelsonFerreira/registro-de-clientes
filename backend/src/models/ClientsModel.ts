@@ -1,9 +1,4 @@
-import { DateType, Model } from './Model';
-
-export enum Role {
-  Admin = 'admin',
-  User = 'user',
-}
+import { sql } from '../db';
 
 export type Client = {
   id: number;
@@ -14,16 +9,16 @@ export type Client = {
   coordY: string;
 };
 
-export class ClientModel extends Model {
-  static tableName = 'clients';
-
-  public static async create<Payload>(data: Payload): Promise<Client & DateType> {
-    return super.insert<Payload, Client>({
-      ...data,
-    });
+export class ClientModel {
+  public static create(data: Omit<Client, "id">) {
+    return sql`insert into "clients" ("coordX", "coordY", "email", "name", "phone") values (${data.coordX}, ${data.coordY}, ${data.email}, ${data.name}, ${data.phone}) returning *`
   }
 
-  public static find(): Promise<Client[]> {
-    return this.all<Client>()
+  public static find() {
+    return sql`select * from "clients"`;
+  }
+
+  public static delete(id: string) {
+    return sql`delete from "clients" where "id" = ${id}`
   }
 }

@@ -4,8 +4,6 @@ import cors from "cors"
 import { env } from "./env"
 import router from "./routes";
 
-import "./utils/coords-path";
-
 const app = express()
 const port = env.PORT ?? 5000
 
