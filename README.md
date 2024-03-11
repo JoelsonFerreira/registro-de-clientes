@@ -21,17 +21,19 @@ PORT=5000
 PG_CONNECTION_STRING=postgresql://postgres:1234@localhost:5432/postgres
 ```
 
-Para executar um ambiente de desenvolvimento, execute o seguinte comando:
+Para executar um ambiente de desenvolvimento, execute o seguintes comandos:
 
 ```bash
-yarn dev:back
+cd backend
+yarn dev
 ```
 
 E para executar uma build otimizada para produção, execute os seguintes comando:
 
 ```bash
-yarn build:back
-yarn start:back
+cd backend
+yarn build
+yarn start
 ```
 
 ## Frontend
@@ -42,15 +44,17 @@ yarn start:back
 NEXT_PUBLIC_API_URL=http://localhost:5000
 ```
 
-Para executar um ambiente de desenvolvimento, execute o seguinte comando:
+Para executar um ambiente de desenvolvimento, execute o seguintes comandos:
 
 ```bash
-yarn dev:front
+cd frontend
+yarn dev
 ```
 
 E para executar uma build otimizada para produção, execute os seguintes comando:
 
 ```bash
-yarn build:front
-yarn start:front
+cd frontend
+yarn build
+yarn start
 ```
