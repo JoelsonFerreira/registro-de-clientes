@@ -4,7 +4,11 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
+    "dev:back": "cd backend && yarn dev",
+    "build:back": "cd backend && yarn build",
+    "start:back": "cd backend && yarn start",
     "dev:front": "cd frontend && yarn dev",
-    "dev:back": "cd backend && yarn dev"
+    "build:front": "cd frontend && yarn build",
+    "start:front": "cd frontend && yarn start"
   }
 }

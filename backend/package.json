@@ -4,7 +4,9 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "dev": "nodemon src/index.ts"
+    "dev": "nodemon src/index.ts",
+    "start": "node build/index.js",
+    "build": "tsc"
   },
   "devDependencies": {
     "@types/cors": "^2.8.17",
