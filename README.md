@@ -25,6 +25,7 @@ Para executar um ambiente de desenvolvimento, execute o seguintes comandos:
 
 ```bash
 cd backend
+yarn
 yarn dev
 ```
 
@@ -32,6 +33,7 @@ E para executar uma build otimizada para produção, execute os seguintes comand
 
 ```bash
 cd backend
+yarn
 yarn build
 yarn start
 ```
@@ -48,6 +50,7 @@ Para executar um ambiente de desenvolvimento, execute o seguintes comandos:
 
 ```bash
 cd frontend
+yarn
 yarn dev
 ```
 
@@ -55,6 +58,7 @@ E para executar uma build otimizada para produção, execute os seguintes comand
 
 ```bash
 cd frontend
+yarn
 yarn build
 yarn start
 ```
